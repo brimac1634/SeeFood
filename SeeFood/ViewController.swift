@@ -8,12 +8,15 @@
 
 import UIKit
 import SVProgressHUD
+import ChameleonFramework
 import CoreML
 import Vision
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var logoView: UIImageView!
+    @IBOutlet weak var againButton: UIButton!
     @IBOutlet weak var navTitle: UINavigationItem!
     
     let imagePicker = UIImagePickerController()
@@ -23,9 +26,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        if let navBar = navigationController?.navigationBar {
+            navBar.barTintColor = UIColor.flatPurple()
+            navBar.tintColor = UIColor.flatWhite()
+            navBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.flatWhite()]
+            navTitle.title = "SeeFood"
+        }
         
+        imageView.backgroundColor = UIColor.flatPurple()
+        logoView.image = UIImage(named: "hotdog")
+        againButton.isHidden = true
         
-        navTitle.title = "SeeFood"
         
         imagePicker.delegate = self
         imagePicker.sourceType = .camera
@@ -40,7 +51,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             guard let ciimage = CIImage(image: userPickedImage) else {
                 fatalError("Could Not Convert to CIImage.")
             }
-            SVProgressHUD.show()
+            
             detect(image: ciimage)
         }
         
@@ -63,7 +74,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 } else {
                     self.navTitle.title = "Not Hotdog!"
                 }
-                SVProgressHUD.dismiss()
+                self.imageView.backgroundColor = UIColor.flatBlack()
+                self.logoView.isHidden = true
+                self.againButton.backgroundColor = UIColor.flatPurple()
+                self.againButton.tintColor = UIColor.flatWhite()
+                self.againButton.isHidden = false
                 
             }
         }
@@ -85,6 +100,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         present(imagePicker, animated: true, completion: nil)
     }
     
+    
+    @IBAction func againButtonPressed(_ sender: UIButton) {
+        self.againButton.isHidden = true
+        self.imageView.image = nil
+        self.imageView.backgroundColor = UIColor.flatPurple()
+        self.logoView.isHidden = false
+    }
     
 
 

@@ -21,13 +21,47 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="caQ-YR-2ws">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dWk-yb-Aq5">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3dt-Uz-PxW" userLabel="Logo View">
+                                        <rect key="frame" x="87" y="201" width="200" height="200"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="200" id="O7J-jV-nSN"/>
+                                            <constraint firstAttribute="width" constant="200" id="XYd-Xc-ja3"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LGf-kC-kkR">
+                                        <rect key="frame" x="122" y="495" width="130" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="130" id="Fdc-fu-tv6"/>
+                                            <constraint firstAttribute="height" constant="60" id="Fgg-fy-7dr"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="30"/>
+                                        <state key="normal" title="Again!"/>
+                                        <connections>
+                                            <action selector="againButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mi1-LZ-nEI"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="LGf-kC-kkR" secondAttribute="bottom" constant="48" id="G0U-T6-mO7"/>
+                                    <constraint firstItem="3dt-Uz-PxW" firstAttribute="centerX" secondItem="dWk-yb-Aq5" secondAttribute="centerX" id="Qjj-8D-5Cx"/>
+                                    <constraint firstItem="LGf-kC-kkR" firstAttribute="centerX" secondItem="dWk-yb-Aq5" secondAttribute="centerX" id="SbH-Pi-skK"/>
+                                    <constraint firstItem="3dt-Uz-PxW" firstAttribute="centerY" secondItem="dWk-yb-Aq5" secondAttribute="centerY" id="a9g-F7-aze"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="caQ-YR-2ws" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="5dA-v2-cK8"/>
-                            <constraint firstItem="caQ-YR-2ws" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="7zH-dv-U2J"/>
-                            <constraint firstItem="caQ-YR-2ws" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="9fJ-wx-G4l"/>
-                            <constraint firstItem="caQ-YR-2ws" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="HTE-eg-80Y"/>
+                            <constraint firstItem="dWk-yb-Aq5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="1xN-Yk-yeR"/>
+                            <constraint firstItem="dWk-yb-Aq5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="6Xe-TC-9cq"/>
+                            <constraint firstItem="caQ-YR-2ws" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="7xO-Yf-HoI"/>
+                            <constraint firstItem="caQ-YR-2ws" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="FVr-iN-rXb"/>
+                            <constraint firstItem="caQ-YR-2ws" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="YTo-YL-xcB"/>
+                            <constraint firstItem="dWk-yb-Aq5" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="n8B-At-3Ol"/>
+                            <constraint firstItem="dWk-yb-Aq5" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="yXQ-Ls-Lmk"/>
+                            <constraint firstItem="caQ-YR-2ws" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="zYk-Mt-ikc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -39,7 +73,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="againButton" destination="LGf-kC-kkR" id="Exq-e0-y3z"/>
                         <outlet property="imageView" destination="caQ-YR-2ws" id="uPN-bx-xss"/>
+                        <outlet property="logoView" destination="3dt-Uz-PxW" id="F5h-fI-jsC"/>
                         <outlet property="navTitle" destination="ySn-5f-HZB" id="UlY-11-xBZ"/>
                     </connections>
                 </viewController>
