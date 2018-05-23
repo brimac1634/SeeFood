@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 import CoreML
 import Vision
 
@@ -21,6 +22,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        
         
         navTitle.title = "SeeFood"
         
@@ -37,7 +40,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             guard let ciimage = CIImage(image: userPickedImage) else {
                 fatalError("Could Not Convert to CIImage.")
             }
-            
+            SVProgressHUD.show()
             detect(image: ciimage)
         }
         
@@ -60,7 +63,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 } else {
                     self.navTitle.title = "Not Hotdog!"
                 }
-                
+                SVProgressHUD.dismiss()
                 
             }
         }
