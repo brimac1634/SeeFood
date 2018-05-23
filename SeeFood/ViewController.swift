@@ -13,13 +13,16 @@ import Vision
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var navTitle: UINavigationItem!
     
     let imagePicker = UIImagePickerController()
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navTitle.title = "SeeFood"
         
         imagePicker.delegate = self
         imagePicker.sourceType = .camera
@@ -51,7 +54,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             guard let results = request.results as? [VNClassificationObservation] else {
                 fatalError("Model failed to process image")
             }
-            print(results)
+            if let firstResult = results.first {
+                if firstResult.identifier.contains("hotdog") {
+                    self.navTitle.title = "Hotdog!"
+                } else {
+                    self.navTitle.title = "Not Hotdog!"
+                }
+                
+                
+            }
         }
        
         let handler = VNImageRequestHandler(ciImage: image)
