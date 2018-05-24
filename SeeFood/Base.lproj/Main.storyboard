@@ -31,6 +31,16 @@
                                             <constraint firstAttribute="width" constant="200" id="XYd-Xc-ja3"/>
                                         </constraints>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Mk-6v-OrL" userLabel="Logo Button">
+                                        <rect key="frame" x="87" y="201" width="200" height="200"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="YTc-5q-xOf"/>
+                                            <constraint firstAttribute="height" constant="200" id="tx6-0n-fBM"/>
+                                        </constraints>
+                                        <connections>
+                                            <action selector="logoTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cZx-ne-ZDw"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LGf-kC-kkR">
                                         <rect key="frame" x="122" y="495" width="130" height="60"/>
                                         <constraints>
@@ -45,10 +55,12 @@
                                     </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="4Mk-6v-OrL" firstAttribute="centerY" secondItem="dWk-yb-Aq5" secondAttribute="centerY" id="EAw-Fa-hIN"/>
                                     <constraint firstAttribute="bottom" secondItem="LGf-kC-kkR" secondAttribute="bottom" constant="48" id="G0U-T6-mO7"/>
                                     <constraint firstItem="3dt-Uz-PxW" firstAttribute="centerX" secondItem="dWk-yb-Aq5" secondAttribute="centerX" id="Qjj-8D-5Cx"/>
                                     <constraint firstItem="LGf-kC-kkR" firstAttribute="centerX" secondItem="dWk-yb-Aq5" secondAttribute="centerX" id="SbH-Pi-skK"/>
                                     <constraint firstItem="3dt-Uz-PxW" firstAttribute="centerY" secondItem="dWk-yb-Aq5" secondAttribute="centerY" id="a9g-F7-aze"/>
+                                    <constraint firstItem="4Mk-6v-OrL" firstAttribute="centerX" secondItem="dWk-yb-Aq5" secondAttribute="centerX" id="mIN-O8-atz"/>
                                 </constraints>
                             </view>
                         </subviews>

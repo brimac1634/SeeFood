@@ -8,6 +8,7 @@
 
 import UIKit
 import SVProgressHUD
+import ProgressHUD
 import ChameleonFramework
 import CoreML
 import Vision
@@ -30,7 +31,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             navBar.barTintColor = UIColor.flatPurple()
             navBar.tintColor = UIColor.flatWhite()
             navBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.flatWhite()]
-            navTitle.title = "SeeFood"
+            navTitle.title = "Hotdog or Naw"
         }
         
         imageView.backgroundColor = UIColor.flatPurple()
@@ -70,9 +71,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             }
             if let firstResult = results.first {
                 if firstResult.identifier.contains("hotdog") {
-                    self.navTitle.title = "Hotdog!"
+//                    self.navTitle.title = "Hotdog!"
+                    ProgressHUD.imageSuccess(UIImage(named: "hotdog"))
+                    ProgressHUD.setAnimationDuration(5)
+                    ProgressHUD.showSuccess("Hotdog!")
                 } else {
-                    self.navTitle.title = "Not Hotdog!"
+//                    self.navTitle.title = "Not Hotdog!"
+                    ProgressHUD.setAnimationDuration(5)
+                    ProgressHUD.showError("Not Hotdog!")
                 }
                 self.imageView.backgroundColor = UIColor.flatBlack()
                 self.logoView.isHidden = true
@@ -96,10 +102,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     
     @IBAction func cameraTapped(_ sender: UIBarButtonItem) {
-        
         present(imagePicker, animated: true, completion: nil)
     }
     
+    @IBAction func logoTapped(_ sender: UIButton) {
+        present(imagePicker, animated: true, completion: nil)
+    }
     
     @IBAction func againButtonPressed(_ sender: UIButton) {
         self.againButton.isHidden = true
